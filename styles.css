@@ -45,4 +45,20 @@ body {
   body {
     font-size: 18px;
   }
+  #music-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#music-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+ }
 }
