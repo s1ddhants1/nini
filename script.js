@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const music = document.getElementById('background-music');
   const musicToggle = document.getElementById('music-toggle');
 
+  // Unmute after page interaction or brief delay to comply with browser policies
+  setTimeout(() => {
+    music.muted = false;
+    music.play().catch((err) => console.error('Autoplay blocked:', err));
+  }, 1000);
+});
+
   musicToggle.addEventListener('click', function () {
     if (music.paused) {
       music.play();
