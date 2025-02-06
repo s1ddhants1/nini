@@ -33,12 +33,19 @@ body {
 }
 
 .typing-animation p {
-  display: block; /* Changed from inline-block to block */
+  display: block; /* Ensure each line is on a new line */
   opacity: 0;
   white-space: nowrap;
   overflow: hidden;
-  border-right: .15em solid white;
+  border-right: .15em solid white; /* Blinking cursor */
   width: 0;
+  margin: 0;
+}
+
+/* Target the second line to make it bigger and bolder */
+.typing-animation p:nth-child(2) {
+  font-size: 2em; /* Increase font size */
+  font-weight: bold; /* Make the text bold */
 }
 
 @media (max-width: 768px) {
