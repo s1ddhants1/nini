@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Typing animation for text
+  // Select all paragraphs in the typing animation container
   let lines = document.querySelectorAll('.typing-animation p');
   let delay = 0;
 
+  // Loop through each line and animate it
   lines.forEach((line, index) => {
     // Delay each line's appearance
     setTimeout(() => {
@@ -11,13 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
       line.style.width = line.scrollWidth + 'px'; // Expand the width based on the text
       line.style.opacity = 1;
 
-      // Remove the blinking cursor after the last line finishes typing
-      if (index === lines.length - 1) {
-        setTimeout(() => {
-          line.style.borderRight = 'none'; // Hide the cursor
-        }, 2000); // Adjust the delay to match the typing duration
-      }
+      // Remove the blinking cursor after the current line finishes typing
+      setTimeout(() => {
+        line.style.borderRight = 'none'; // Hide the cursor
+      }, 2000); // Wait until the typing animation is complete before hiding the cursor
     }, delay);
+
     delay += 2500; // Adjust time between lines appearing
   });
 
