@@ -42,7 +42,7 @@ body {
   margin: 0;
 }
 
-.typing-animation p:nth-child(2) {
+.typing-animation p:nth-child(3) {
   font-size: 2em; 
   font-weight: bold;
 }
