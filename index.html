@@ -48,13 +48,18 @@
     <div id="content2" class="content"> Line2 Greeting </div>
     <div id="content3" class="content"> Main text</div>
 
-    <script>
+<script>
         let contentIndex = 0;
         const contents = document.querySelectorAll('.content');
         
         function showNextLine() {
             if (contentIndex < contents.length) {
-                contents[contentIndex].style.display = 'block';
+                const currentContent = contents[contentIndex];
+                currentContent.style.display = 'block';
+                currentContent.classList.remove('finished');
+                setTimeout(() => {
+                    currentContent.classList.add('finished');
+                }, 2000); // Time after which the cursor disappears (after the typing ends)
                 contentIndex++;
             }
         }
