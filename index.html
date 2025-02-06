@@ -28,6 +28,10 @@
             border-right: 3px solid white;
             animation: typing 2s steps(30) forwards, blinkCaret 0.75s step-end infinite;
         }
+        .content.finished {
+            border-right: none; /* Hide the blinking cursor after typing is done */
+            animation: typing 2s steps(30) forwards;
+        }
         @keyframes typing {
             from {
                 width: 0;
@@ -44,11 +48,11 @@
     </style>
 </head>
 <body>
-    <div id="content1" class="content"> Line1 Welcome </div>
-    <div id="content2" class="content"> Line2 Greeting </div>
-    <div id="content3" class="content"> Main text</div>
+    <div id="content1" class="content">Welcome to my website.</div>
+    <div id="content2" class="content">It’s great to have you here.</div>
+    <div id="content3" class="content">Stay tuned for more updates.</div>
 
-<script>
+    <script>
         let contentIndex = 0;
         const contents = document.querySelectorAll('.content');
         
