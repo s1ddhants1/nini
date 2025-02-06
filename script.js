@@ -15,16 +15,16 @@ document.addEventListener("DOMContentLoaded", function () {
       // Remove the blinking cursor after the current line finishes typing
       setTimeout(() => {
         line.style.borderRight = 'none'; // Hide the cursor
-      }, 2000); // Wait until the typing animation is complete before hiding the cursor
+      }, 2000); // 
     }, delay);
 
-    delay += 2500; // Adjust time between lines appearing
+    delay += 2500; // time between lines appearing
   });
 
   // Handle background music autoplay
   const music = document.getElementById('background-music');
 
-  // Unmute after a brief delay to bypass autoplay restrictions
+  // Atuoplay Restrictions Bypass
   setTimeout(() => {
     music.muted = false;
     music.play().catch((err) => {
