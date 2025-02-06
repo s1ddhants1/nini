@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Courier New', monospace;
+  font-family: 'London Between', sans-serif;
   height: 100vh;
   margin: 0;
   overflow: hidden;
@@ -66,9 +66,5 @@ body {
   src: url('fonts/LondonBetween.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-}
-
-body {
-  font-family: 'LondonBetween', sans-serif;
- }
+  }
 }
