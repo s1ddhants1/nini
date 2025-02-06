@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .content {
+            font-size: 24px;
+            line-height: 1.5;
+            display: none;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            border-right: 3px solid white;
+            animation: typing 2s steps(30) forwards, blinkCaret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        @keyframes blinkCaret {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="content1" class="content"> Line1 Welcome </div>
+    <div id="content2" class="content"> Line2 Greeting </div>
+    <div id="content3" class="content"> Main text</div>
+
+    <script>
+        let contentIndex = 0;
+        const contents = document.querySelectorAll('.content');
+        
+        function showNextLine() {
+            if (contentIndex < contents.length) {
+                contents[contentIndex].style.display = 'block';
+                contentIndex++;
+            }
+        }
+
+        setInterval(showNextLine, 3500);  // Adjusted interval for better visual effect
+    </script>
+</body>
+</html>
