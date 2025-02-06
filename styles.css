@@ -33,7 +33,7 @@ body {
 }
 
 .typing-animation p {
-  display: inline-block;
+  display: block; /* Changed from inline-block to block */
   opacity: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -45,26 +45,11 @@ body {
   body {
     font-size: 18px;
   }
-  #music-toggle {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  z-index: 10;
 }
 
-#music-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-  color: black;
- }
-  @font-face {
+@font-face {
   font-family: 'LondonBetween';
   src: url('fonts/LondonBetween.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  }
 }
