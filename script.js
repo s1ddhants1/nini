@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   lines.forEach((line, index) => {
     setTimeout(() => {
       line.style.transition = 'width 2s ease, opacity 1s ease';
-      line.style.width = line.scrollWidth + 'px'; // Expand the width based on the text
+      line.style.width = line.scrollWidth + 'px';
       line.style.opacity = 1;
 
       setTimeout(() => {
@@ -13,13 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 2000); 
     }, delay);
 
-    delay += 2500; // time between lines appearing
-  });
+    delay += 2500; 
 
-  // Handle background music autoplay
   const music = document.getElementById('background-music');
 
-  // Autoplay Restrictions Bypass
   setTimeout(() => {
     music.muted = false;
     music.play().catch((err) => {
