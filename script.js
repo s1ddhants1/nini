@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const playButton = document.getElementById('play-music');
   const playIcon = playButton.querySelector('i');
 
-  // Automatically play music on page load
   const playMusicOnLoad = () => {
     if (music.paused) {
       music.muted = false;
