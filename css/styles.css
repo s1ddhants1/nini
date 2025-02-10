@@ -1,19 +1,109 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Global Styles */
 body {
   font-family: 'LondonBetween', sans-serif;
   height: 100vh;
-  margin: 0;
   overflow: hidden;
-  color: white;
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'LondonBetween';
+  src: url('../fonts/LondonBetween.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --------- Homepage Styles --------- */
+body.homepage {
+  background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.homepage h1 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.homepage p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Hamburger Menu */
+.menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 30px;
+  color: #333;
+}
+
+.nav-links {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.nav-links a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background: #D80073;
+}
+
+.nav-active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .homepage h1 {
+    font-size: 2.5rem;
+  }
+
+  .homepage p {
+    font-size: 1rem;
+  }
+
+  .menu-icon {
+    font-size: 26px;
+  }
+}
+
+/* --------- Valentine Page Styles --------- */
+body.valentine-page {
+  color: white;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #background-video {
@@ -40,7 +130,7 @@ body {
   opacity: 0;
   white-space: nowrap;
   overflow: hidden;
-  border-right: .15em solid white;
+  border-right: 0.15em solid white;
   width: 0;
   margin: 0.5rem 0;
   transition: width 2s ease, opacity 1s ease;
@@ -69,11 +159,4 @@ body {
 
 #play-music:hover {
   opacity: 0.8;
-}
-
-@font-face {
-  font-family: 'LondonBetween';
-  src: url('./fonts/LondonBetween.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
 }
