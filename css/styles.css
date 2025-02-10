@@ -44,6 +44,12 @@ body.homepage {
   margin-top: 10px;
 }
 
+.homepage h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 20px;
+}
+
 /* Hamburger Menu */
 .menu {
   position: fixed;
