@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'LondonBetween', sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.typing-animation p {
+  display: block;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .15em solid white;
+  width: 0;
+  margin: 0.5rem 0;
+  transition: width 2s ease, opacity 1s ease;
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
+}
+
+#line3 {
+  background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: clamp(2.5rem, 3.5vw, 4rem);
+  font-weight: bold;
+}
+
+#play-music {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+  outline: none;
+}
+
+#play-music:hover {
+  opacity: 0.8;
+}
+
+@font-face {
+  font-family: 'LondonBetween';
+  src: url('./fonts/LondonBetween.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
