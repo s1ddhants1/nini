@@ -24,9 +24,12 @@ body {
 body.homepage {
   background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .homepage h1 {
@@ -38,7 +41,7 @@ body.homepage {
 .homepage p {
   font-size: 1.2rem;
   color: #666;
-  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 /* Hamburger Menu */
