@@ -45,10 +45,12 @@ body.homepage {
 .homepage h2 {
   font-size: 3.5rem;
   color: #333;
+  position: fixed;
 }
 
 .homepage h3 {
   color: #333;
+  position: fixed;
   background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
   -webkit-background-clip: text;
   color: transparent;
