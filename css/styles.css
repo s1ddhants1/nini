@@ -68,6 +68,7 @@ body.homepage {
   font-size: 1.2rem;
   text-decoration: underline;
   color: #333;
+  position: fixed;
   margin-top: 30px;
   margin-bottom: 5px;
 }
