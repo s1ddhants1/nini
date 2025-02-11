@@ -1,10 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let lines = document.querySelectorAll('.typing-animation p');
+  // Homepage Elements //
+  // Elements for the hamburger menu
+  const menuIcon = document.querySelector('.menu-icon');
+  const navLinks = document.querySelector('.nav-links');
+  
+  // Handle hamburger menu toggle
+  const toggleMenu = () => {
+    navLinks.classList.toggle('nav-active');
+  };
+
+  
+  // Valentine Page Elements //
+  // Elements for typing animation
+  const lines = document.querySelectorAll('.typing-animation p');
   let delay = 0;
 
+  // Elements for music control
+  const music = document.getElementById('background-music');
+  const playButton = document.getElementById('play-music');
+  const playIcon = playButton.querySelector('i');
+  
+
+  // Function to handle the typing animation
   lines.forEach((line) => {
     setTimeout(() => {
-      line.style.width = line.scrollWidth + 'px';
+      line.style.width = `${line.scrollWidth}px`;
       line.style.opacity = 1;
 
       setTimeout(() => {
@@ -15,32 +35,29 @@ document.addEventListener("DOMContentLoaded", function () {
     delay += 2500;
   });
 
-  const music = document.getElementById('background-music');
-  const playButton = document.getElementById('play-music');
-  const playIcon = playButton.querySelector('i');
-
-  const playMusicOnLoad = () => {
+  // Function to handle play/pause logic for music
+  const togglePlayState = () => {
     if (music.paused) {
       music.muted = false;
       music.play().then(() => {
-        playIcon.classList.remove('fa-play');
-        playIcon.classList.add('fa-pause');
-      }).catch(err => console.log('Autoplay Blocked:', err));
+        playIcon.classList.replace('fa-play', 'fa-pause');
+      }).catch(err => console.warn('Autoplay Blocked:', err));
+    } else {
+      music.pause();
+      playIcon.classList.replace('fa-pause', 'fa-play');
     }
   };
 
+  // Play music automatically on load
   playMusicOnLoad();
-
-  playButton.addEventListener('click', () => {
-    if (music.paused) {
-      music.muted = false;
-      music.play();
-      playIcon.classList.remove('fa-play');
-      playIcon.classList.add('fa-pause');
-    } else {
-      music.pause();
-      playIcon.classList.remove('fa-pause');
-      playIcon.classList.add('fa-play');
-    }
-  });
+  const playMusicOnLoad = () => {
+    music.muted = false;
+    music.play().then(() => {
+      playIcon.classList.replace('fa-play', 'fa-pause');
+    }).catch(err => console.warn('Autoplay Blocked:', err));
+  };
+  
+  // Event listeners
+  playButton.addEventListener('click', togglePlayState);
+  menuIcon.addEventListener('click', toggleMenu);
 });
