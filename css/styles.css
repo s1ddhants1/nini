@@ -9,7 +9,7 @@
 body {
   font-family: 'LondonBetween', sans-serif;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   text-align: center;
 }
 
