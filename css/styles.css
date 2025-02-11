@@ -115,7 +115,7 @@ body.homepage {
 /* --------- Valentine Page Styles --------- */
 body.valentine-page {
   color: white;
-  background: none;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
