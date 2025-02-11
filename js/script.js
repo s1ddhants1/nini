@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Valentine Page Elements //
   // Elements for typing animation
-  const lines = document.querySelectorAll('.typing-animation p');
+  let lines = document.querySelectorAll('.typing-animation p');
   let delay = 0;
 
   // Elements for music control
