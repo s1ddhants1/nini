@@ -1,0 +1,86 @@
+/* --------- Valentine Page Styles --------- */
+body.valentine-page {
+  color: white;
+  display: flex;
+  background: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* --------- Typing Animation --------- */
+@keyframes typing {
+  from { width: 0; opacity: 1; }
+  to { width: 100%; opacity: 1; }
+}
+
+@keyframes blinkCursor {
+  50% { border-right-color: transparent; }
+}
+
+/* Initial state of each line */
+.typing-animation p {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid white; /* Blinking cursor */
+  width: 0;
+  margin: 0.5rem 0;
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
+  opacity: 0;
+}
+
+/* When a line starts typing */
+.typing-animation p.animated {
+  opacity: 1;
+  animation: typing 2s steps(40, end) forwards;
+}
+
+/* Blinking cursor during animation */
+.typing-animation p.animated::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 1.2em;
+  background: white;
+  animation: blinkCursor 0.7s steps(2, start) infinite;
+}
+
+/* Remove cursor after animation */
+.typing-animation p.completed::after {
+  display: none;
+}
+
+#line3 {
+  background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: clamp(2.5rem, 3.5vw, 4rem);
+  font-weight: bold;
+}
+
+/* Music Button */
+#play-music {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+  outline: none;
+}
+
+#play-music:hover {
+  opacity: 0.8;
+}
