@@ -88,17 +88,6 @@ body.homepage {
 }
 
 .nav-links {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: rgba(0, 0, 0, 0.9);
-  color: white;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.nav-links {
   position: absolute;
   top: 50px;
   right: 0;
@@ -109,6 +98,15 @@ body.homepage {
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  transition: background 0.3s;
 }
 
 .nav-links a:hover {
@@ -148,35 +146,53 @@ body.valentine-page {
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -1;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
+  z-index: -1;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
+/* --------- Typing Animation --------- */
 @keyframes typing {
-  from { width: 0; opacity: 0; }
+  from { width: 0; opacity: 1; }
   to { width: 100%; opacity: 1; }
 }
 
+@keyframes blinkCursor {
+  50% { border-right-color: transparent; }
+}
+
+/* Initial state of each line */
 .typing-animation p {
-  display: block;
+  display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 0.15em solid white;
+  border-right: 2px solid white; /* Blinking cursor */
   width: 0;
   margin: 0.5rem 0;
   font-size: clamp(1.2rem, 1.5vw, 2rem);
+  opacity: 0;
+}
+
+/* When a line starts typing */
+.typing-animation p.animated {
+  opacity: 1;
   animation: typing 2s steps(40, end) forwards;
+}
+
+/* Blinking cursor during animation */
+.typing-animation p.animated::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 1.2em;
+  background: white;
+  animation: blinkCursor 0.7s steps(2, start) infinite;
+}
+
+/* Remove cursor after animation */
+.typing-animation p.completed::after {
+  display: none;
 }
 
 #line3 {
@@ -187,6 +203,7 @@ body.valentine-page {
   font-weight: bold;
 }
 
+/* Music Button */
 #play-music {
   position: fixed;
   bottom: 10px;
