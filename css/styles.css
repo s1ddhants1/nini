@@ -44,45 +44,11 @@ body.homepage {
   z-index: 10;
 }
 
-.homepage h1 {
-  font-size: 3rem;
-  color: #333;
-  margin-bottom: 10px;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-}
 
-.homepage h2 {
-  font-size: 3.5rem;
-  color: #333;
-  position: fixed;
-}
-
-.homepage h3 {
-  color: #333;
-  position: fixed;
-  background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
-  -webkit-background-clip: text;
-  color: transparent;
-  font-size: clamp(3.5rem, 4.5vw, 5rem);
+.logo {
+  font-size: 2rem;
   font-weight: bold;
-}
-
-.homepage p {
-  font-size: 1.2rem;
-  color: #666;
-  margin-top: 10px;
-}
-
-.homepage h4 {
-  font-size: 1.2rem;
-  text-decoration: underline;
   color: #333;
-  position: fixed;
-  margin-top: 30px;
-  margin-bottom: 5px;
 }
 
 /* Hamburger Menu */
@@ -131,17 +97,60 @@ body.homepage {
   transform: translateY(0);
 }
 
-@media (max-width: 768px) {
-  .homepage h1 {
-    font-size: 2.5rem;
-  }
+main {
+  padding: 50px 20px;
+  text-align: center;
+  flex-grow: 1;
+}
 
-  .homepage p {
-    font-size: 1rem;
+.intro {
+  padding: 40px;
+}
+
+.intro h2 {
+  font-size: 4rem;
+  color: #333;
+}
+
+.intro h3 {
+  color: #333;
+  background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: clamp(3.5rem, 4.5vw, 5rem);
+  font-weight: bold;
+}
+
+.spotify-player h4 {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.spotify-container iframe {
+  width: 100%;
+  height: 380px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem;
   }
 
   .menu-icon {
     font-size: 26px;
+  }
+
+  .intro h2 {
+    font-size: 2.5rem;
+  }
+
+  .intro h3 {
+    font-size: 2rem;
+  }
+
+  .spotify-container iframe {
+    height: 300px;
   }
 }
 
