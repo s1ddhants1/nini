@@ -130,6 +130,7 @@ body.homepage {
 body.valentine-page {
   color: white;
   display: flex;
+  background: transparent;
   justify-content: center;
   align-items: center;
 }
