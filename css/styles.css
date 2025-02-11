@@ -9,7 +9,7 @@
 body {
   font-family: 'LondonBetween', sans-serif;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   text-align: center;
 }
 
@@ -30,6 +30,18 @@ body.homepage {
   text-align: center;
   min-height: 100vh;
   padding: 30px;
+}
+
+.homepage header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 15px;
+  z-index: 10;
 }
 
 .homepage h1 {
