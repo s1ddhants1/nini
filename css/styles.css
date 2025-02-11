@@ -99,7 +99,7 @@ main {
 }
 
 .intro h2 {
-  font-size: 4rem;
+  font-size: 3rem;
   color: #333;
 }
 
@@ -108,7 +108,7 @@ main {
   background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
   -webkit-background-clip: text;
   color: transparent;
-  font-size: clamp(3.5rem, 4.5vw, 5rem);
+  font-size: clamp(4.5rem, 5.5vw, 6rem);
   font-weight: bold;
 }
 
