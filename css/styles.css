@@ -21,41 +21,35 @@ body {
 }
 
 /* --------- Homepage Styles --------- */
+
 body.homepage {
   background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  padding: 30px;
+  font-family: 'LondonBetween', sans-serif;
+  src: url('../fonts/LondonBetween.woff') format('woff');
+  height: 100vh;
+  overflow-x: hidden;
 }
 
-.homepage header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   width: 100%;
-  background: none;
+  background-color: #fff;
   padding: 15px;
   z-index: 10;
 }
 
 .logo {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #333;
 }
 
-/* Hamburger Menu */
 .menu {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
+  position: relative;
 }
 
 .menu-icon {
@@ -107,7 +101,7 @@ main {
 }
 
 .intro h2 {
-  font-size: 3rem;
+  font-size: 4rem;
   color: #333;
 }
 
