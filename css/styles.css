@@ -39,11 +39,10 @@ body.homepage {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: #fff;
+  background: none;
   padding: 15px;
   z-index: 10;
 }
-
 
 .logo {
   font-size: 2rem;
