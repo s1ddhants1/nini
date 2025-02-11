@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Play music automatically on load
-  playMusicOnLoad();
+  
   const playMusicOnLoad = () => {
     music.muted = false;
     music.play().then(() => {
@@ -62,5 +62,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listeners
   playButton.addEventListener('click', togglePlayState);
-  menuIcon.addEventListener('click', toggleMenu);
 });
+playMusicOnLoad();
