@@ -24,8 +24,6 @@ body {
 
 body.homepage {
   background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
-  font-family: 'LondonBetween', sans-serif;
-  src: url('../fonts/LondonBetween.woff') format('woff');
   height: 100vh;
   overflow-x: hidden;
 }
