@@ -8,7 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleMenu = () => {
     navLinks.classList.toggle('nav-active');
   };
-
+  // Toggle menu on click
+  menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-active');
+  });
   
   // Valentine Page Elements //
   // Elements for typing animation
