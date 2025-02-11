@@ -42,13 +42,27 @@ body.homepage {
   z-index: 10;
 }
 
+.homepage h2 {
+  font-size: 4rem;
+  color: #333;
+}
+
+.homepage h3 {
+  color: #333;
+  background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: clamp(2.5rem, 3.5vw, 4rem);
+  font-weight: bold;
+}
+
 .homepage p {
   font-size: 1.2rem;
   color: #666;
   margin-top: 10px;
 }
 
-.homepage h2 {
+.homepage h4 {
   font-size: 1.2rem;
   text-decoration: underline;
   color: #333;
