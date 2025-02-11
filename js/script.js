@@ -14,32 +14,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
   // Valentine Page Elements //
-  // Elements for typing animation
-  let lines = document.querySelectorAll('.typing-animation p');
+ document.addEventListener("DOMContentLoaded", function () {
+  // Typing Animation
+  const lines = document.querySelectorAll('.typing-animation p');
   let delay = 0;
-  // Function to handle the typing animation
+
+  // Display each line with a delay
   lines.forEach((line) => {
     setTimeout(() => {
-      line.style.width = `${line.scrollWidth}px`;
       line.style.opacity = 1;
-
-      setTimeout(() => {
-        line.style.borderRight = 'none';
-      }, 2000);
+      line.style.transition = "opacity 1s ease-in";
     }, delay);
-
     delay += 2500;
   });
 
-  // Elements for music control
+  // Music Elements
   const music = document.getElementById('background-music');
   const playButton = document.getElementById('play-music');
   const playIcon = playButton.querySelector('i');
-  
-  // Function to handle play/pause logic for music
+
+  // Toggle Play/Pause State
   const togglePlayState = () => {
     if (music.paused) {
-      music.muted = false;
       music.play().then(() => {
         playIcon.classList.replace('fa-play', 'fa-pause');
       }).catch(err => console.warn('Autoplay Blocked:', err));
@@ -49,16 +45,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Play music automatically on load
-  playMusicOnLoad();
+  // Auto-Play Music (with error handling for autoplay restrictions)
   const playMusicOnLoad = () => {
-    music.muted = false;
     music.play().then(() => {
       playIcon.classList.replace('fa-play', 'fa-pause');
     }).catch(err => console.warn('Autoplay Blocked:', err));
   };
-  
-  // Event listeners
+
+  // Event Listeners
   playButton.addEventListener('click', togglePlayState);
-  menuIcon.addEventListener('click', toggleMenu);
+
+  // Attempt Auto Music Play
+  playMusicOnLoad();
 });
