@@ -1,3 +1,4 @@
+/* Global font settings */
 body {
   font-family: 'LondonBetween', sans-serif;
   height: 100vh;
@@ -5,6 +6,7 @@ body {
   text-align: center;
 }
 
+/* Font face declaration for 'LondonBetween' */
 @font-face {
   font-family: 'LondonBetween';
   src: url('../fonts/LondonBetween.woff') format('woff');
@@ -31,6 +33,7 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
+  font-family: 'LondonBetween', sans-serif;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Improves text readability */
 }
 
@@ -38,6 +41,8 @@ body {
 .typing-animation p {
   display: block;
   margin: 10px 0;
+  font-size: 1.8rem;
+  opacity: 0; /* Hide text until it is typed */
 }
 
 /* Line 1: "heyy nini!!" */
@@ -72,15 +77,10 @@ body {
   color: #ffcccb; /* Soft pink for warmth */
 }
 
-/* Cursor effect (only one at a time) */
+/* Cursor effect (no blinking, just steady) */
 .cursor {
   border-right: 2px solid white;
-  animation: blinkCursor 0.5s step-end infinite;
-}
-
-/* Cursor blinking animation */
-@keyframes blinkCursor {
-  50% { border-color: transparent; }
+  margin-left: 2px; /* Space between text and cursor */
 }
 
 /* Play button styling */
