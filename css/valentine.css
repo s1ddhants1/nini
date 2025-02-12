@@ -22,30 +22,10 @@
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Improves text readability */
 }
 
-/* Typing effect */
-.typing-animation p {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  opacity: 1;
-}
-
-/* Animation for typing each line */
-.animated {
-  animation: typing 2s steps(20, end) forwards;
-}
-
 /* Cursor effect (only one at a time) */
 .cursor {
   border-right: 2px solid white;
   animation: blinkCursor 0.5s step-end infinite;
-}
-
-/* Typing keyframes */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
 }
 
 /* Cursor blinking animation */
