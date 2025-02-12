@@ -3,21 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
   let delay = 0;
 
   // Function to animate text line by line
-  const animateText = (line, index) => {
+  const animateText = (line) => {
     setTimeout(() => {
       line.classList.add("animated"); // Start typing animation
-
-      // Remove the blinking cursor after animation
       setTimeout(() => {
         line.classList.add("completed"); // Stops cursor blinking
       }, 2000);
     }, delay);
-
-    delay += 2500; // Delay next line animation
+    delay += 2500; // Delay for next line
   };
 
   // Trigger animation for each line
-  lines.forEach((line, index) => animateText(line, index));
+  lines.forEach(animateText);
 
   // ----- BACKGROUND MUSIC FUNCTIONALITY -----
   const music = document.getElementById("background-music");
@@ -27,10 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to handle play/pause logic
   const togglePlayState = () => {
     if (music.paused) {
-      music.muted = false;
       music.play()
         .then(() => {
           playIcon.classList.replace("fa-play", "fa-pause");
+          playButton.classList.remove("attention"); // Remove attention effect if music starts
         })
         .catch(err => console.warn("Autoplay Blocked:", err));
     } else {
@@ -39,19 +36,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Play music automatically on load (only if allowed)
-  const playMusicOnLoad = () => {
-    music.muted = false;
-    music.play()
-      .then(() => {
-        playIcon.classList.replace("fa-play", "fa-pause");
-      })
-      .catch(err => console.warn("Autoplay Blocked:", err));
-  };
-
   // Event listener for play button
   playButton.addEventListener("click", togglePlayState);
 
-  // Attempt to autoplay music on load
-  playMusicOnLoad();
+  // ----- AUTOPLAY MUSIC ON LOAD -----
+  const playMusicOnLoad = () => {
+    music.play()
+      .then(() => playIcon.classList.replace("fa-play", "fa-pause"))
+      .catch(err => {
+        console.warn("Autoplay Blocked. User interaction required:", err);
+        playButton.classList.add("attention"); // Highlight button if autoplay fails
+      });
+  };
+
+  // Attempt autoplay after a short delay (helps with some browser policies)
+  setTimeout(playMusicOnLoad, 1000);
 });
