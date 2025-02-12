@@ -5,11 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to animate text line by line
   const animateText = (line, index) => {
     setTimeout(() => {
-      line.classList.add("cursor"); // Add cursor while typing
-      let text = line.getAttribute("data-text");
+      const text = line.getAttribute("data-text"); // Get the text from data attribute
       let i = 0;
+      line.textContent = ''; // Clear the line text initially
 
-      // Typing each letter
+      // Add cursor initially
+      line.classList.add("cursor");
+
       const interval = setInterval(() => {
         if (i < text.length) {
           line.textContent += text[i]; // Add one letter at a time
