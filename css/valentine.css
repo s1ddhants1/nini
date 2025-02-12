@@ -1,3 +1,17 @@
+body {
+  font-family: 'LondonBetween', sans-serif;
+  height: 100vh;
+  overflow: auto;
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'LondonBetween';
+  src: url('../fonts/LondonBetween.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Ensure the video covers the entire background */
 #background-video {
   position: fixed;
@@ -9,7 +23,7 @@
   z-index: -1; /* Places the video behind all content */
 }
 
-/* Center the container and overlay text */
+/* Center the text container */
 .container {
   position: absolute;
   top: 50%;
@@ -17,9 +31,46 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  font-size: 2rem;
   font-family: 'Arial', sans-serif;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Improves text readability */
+}
+
+/* Style for all lines */
+.typing-animation p {
+  display: block;
+  margin: 10px 0;
+}
+
+/* Line 1: "heyy nini!!" */
+#line1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+/* Line 2: "Would you like to..." */
+#line2 {
+  font-size: 1.7rem;
+  font-style: italic;
+}
+
+/* Line 3: "Be My Valentine?" (BIGGEST) */
+#line3 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff4d6d; /* A romantic red-pink color */
+}
+
+/* Line 4: "...please?" */
+#line4 {
+  font-size: 1.7rem;
+  font-style: italic;
+}
+
+/* Line 5: "I love you <3" */
+#line5 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffcccb; /* Soft pink for warmth */
 }
 
 /* Cursor effect (only one at a time) */
