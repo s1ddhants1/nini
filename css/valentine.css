@@ -1,104 +1,36 @@
-/* General body and video settings */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-}
-
-#background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw; /* Use full viewport width */
-    height: 100vh; /* Use full viewport height */
-    object-fit: cover; /* Ensure it covers the whole screen */
-    z-index: -1; /* Keep the video behind the content */
-}
-
-/* Ensure the container with text is centered */
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center content horizontally and vertically */
-    z-index: 1;
-}
-
-/* Typing effect styles */
+/* Typing effect */
 .typing-animation p {
-    font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    display: inline-block;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid white; /* Blinking cursor */
+  width: 0;
+  opacity: 1;
 }
 
-/* Animation delay for each line */
-#line1 {
-    animation: typing 3s steps(30) 1s forwards, fadeIn 1s 1.5s forwards;
+.animated {
+  animation: typing 2s steps(20, end) forwards, blinkCursor 0.5s step-end infinite;
 }
 
-#line2 {
-    animation: typing 3s steps(30) 4s forwards, fadeIn 1s 4.5s forwards;
+.completed {
+  border-right: none; /* Remove cursor after animation */
 }
 
-#line3 {
-    animation: typing 3s steps(30) 7s forwards, fadeIn 1s 7.5s forwards;
-}
-
-#line4 {
-    animation: typing 3s steps(30) 10s forwards, fadeIn 1s 10.5s forwards;
-}
-
-#line5 {
-    animation: typing 3s steps(30) 13s forwards, fadeIn 1s 13.5s forwards;
-}
-
-/* Typing animation keyframes */
+/* Typing keyframes */
 @keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
+  from { width: 0; }
+  to { width: 100%; }
 }
 
-/* Fade-in effect after typing */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
 }
 
-/* Button styling */
-#play-music {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.5em;
+/* Play button attention effect */
+.attention {
+  animation: flash 1s infinite;
 }
 
-#play-music:hover {
-    background: rgba(255, 0, 0, 0.8);
-}
-
-#play-music i {
-    margin: 0;
+@keyframes flash {
+  50% { opacity: 0.5; }
 }
