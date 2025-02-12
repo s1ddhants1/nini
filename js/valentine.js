@@ -2,15 +2,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const lines = document.querySelectorAll(".typing-animation p");
   let delay = 0;
 
-  // Function to animate text line by line
-  const animateText = (line) => {
+  // Function to animate text line by line with only one blinking cursor
+  const animateText = (line, index) => {
     setTimeout(() => {
-      line.classList.add("animated"); // Start typing animation
+      // Add typing animation
+      line.classList.add("animated");
+
+      // Remove cursor from previous lines
+      if (index > 0) {
+        lines[index - 1].classList.remove("cursor");
+      }
+
+      // Add cursor to the current line
+      line.classList.add("cursor");
+
+      // Remove the cursor after typing is completed
       setTimeout(() => {
-        line.classList.add("completed"); // Stops cursor blinking
+        line.classList.remove("cursor");
       }, 2000);
     }, delay);
-    delay += 2500; // Delay for next line
+
+    delay += 2500; // Delay for next line animation
   };
 
   // Trigger animation for each line
