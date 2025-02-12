@@ -1,12 +1,14 @@
-/* Global font settings */
+/* Body and font settings */
 body {
   font-family: 'LondonBetween', sans-serif;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;  /* Prevents scrollbars */
+  margin: 0;
   text-align: center;
+  background-color: black; /* Fallback background */
 }
 
-/* Font face declaration for 'LondonBetween' */
+/* Font face for 'LondonBetween' */
 @font-face {
   font-family: 'LondonBetween';
   src: url('../fonts/LondonBetween.woff') format('woff');
@@ -14,7 +16,7 @@ body {
   font-style: normal;
 }
 
-/* Ensure the video covers the entire background */
+/* Ensure the video covers the entire screen */
 #background-video {
   position: fixed;
   top: 0;
@@ -22,70 +24,65 @@ body {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -1; /* Places the video behind all content */
+  z-index: -1;  /* Behind the text */
 }
 
-/* Center the text container */
+/* Container for centered text */
 .container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
   color: white;
   font-family: 'LondonBetween', sans-serif;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Improves text readability */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);  /* Shadow for text visibility */
 }
 
 /* Style for all lines, initially hidden */
 .typing-animation p {
-  display: block;
-  margin: 10px 0;
+  display: inline-block; /* Important for text to align properly */
   font-size: 1.8rem;
-  opacity: 0; /* Initially hidden */
-  visibility: hidden; /* Hidden until typed */
-  transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+  opacity: 0;  /* Hidden until typed */
+  visibility: hidden;  /* Hidden until the text is typed */
+  transition: opacity 0.5s ease-in-out;
+  white-space: nowrap;
 }
 
-/* Line 1: "heyy nini!!" */
+/* Styling for each line */
 #line1 {
   font-size: 1.5rem;
   font-weight: 400;
 }
 
-/* Line 2: "Would you like to..." */
 #line2 {
   font-size: 1.7rem;
   font-style: italic;
 }
 
-/* Line 3: "Be My Valentine?" (BIGGEST) */
 #line3 {
   font-size: 3rem;
   font-weight: bold;
-  color: #ff4d6d; /* A romantic red-pink color */
+  color: #ff4d6d;  /* Romantic color */
 }
 
-/* Line 4: "...please?" */
 #line4 {
   font-size: 1.7rem;
   font-style: italic;
 }
 
-/* Line 5: "I love you <3" */
 #line5 {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #ffcccb; /* Soft pink for warmth */
+  color: #ffcccb;  /* Soft pink color */
 }
 
-/* Cursor effect (no blinking, just steady) */
+/* Cursor (just a fixed line without blinking) */
 .cursor {
   border-right: 2px solid white;
-  margin-left: 2px; /* Space between text and cursor */
+  margin-left: 3px;  /* Small gap between text and cursor */
 }
 
-/* Play button styling */
+/* Play button */
 #play-music {
   position: fixed;
   bottom: 20px;
@@ -97,18 +94,8 @@ body {
   padding: 15px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
 #play-music:hover {
   background: rgba(255, 255, 255, 0.3);
-}
-
-/* Play button attention effect */
-.attention {
-  animation: flash 1s infinite;
-}
-
-@keyframes flash {
-  50% { opacity: 0.5; }
 }
