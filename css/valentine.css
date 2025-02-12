@@ -27,17 +27,19 @@
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 2px solid white; /* Blinking cursor */
   width: 0;
   opacity: 1;
 }
 
+/* Animation for typing each line */
 .animated {
-  animation: typing 2s steps(20, end) forwards, blinkCursor 0.5s step-end infinite;
+  animation: typing 2s steps(20, end) forwards;
 }
 
-.completed {
-  border-right: none; /* Remove cursor after animation */
+/* Cursor effect (only one at a time) */
+.cursor {
+  border-right: 2px solid white;
+  animation: blinkCursor 0.5s step-end infinite;
 }
 
 /* Typing keyframes */
@@ -46,6 +48,7 @@
   to { width: 100%; }
 }
 
+/* Cursor blinking animation */
 @keyframes blinkCursor {
   50% { border-color: transparent; }
 }
