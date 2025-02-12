@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Play music automatically on load
+  // Play music automatically on load (only if allowed)
   const playMusicOnLoad = () => {
     music.muted = false;
     music.play()
