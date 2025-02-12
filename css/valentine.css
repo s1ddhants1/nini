@@ -1,3 +1,27 @@
+/* Ensure the video covers the entire background */
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1; /* Places the video behind all content */
+}
+
+/* Center the container and overlay text */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Improves text readability */
+}
+
 /* Typing effect */
 .typing-animation p {
   display: inline-block;
@@ -24,6 +48,25 @@
 
 @keyframes blinkCursor {
   50% { border-color: transparent; }
+}
+
+/* Play button styling */
+#play-music {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#play-music:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Play button attention effect */
