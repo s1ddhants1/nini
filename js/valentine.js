@@ -1,32 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
   const lines = document.querySelectorAll(".typing-animation p");
-  let delay = 0;
+  let currentLine = 0;
 
-  // Function to animate text line by line with only one blinking cursor
-  const animateText = (line, index) => {
-    setTimeout(() => {
-      // Add typing animation
-      line.classList.add("animated");
+  // Function to simulate typing effect
+  const typeLine = (line, index) => {
+    const text = line.textContent.trim(); // Get full text
+    line.textContent = ""; // Clear text initially
+    line.classList.add("cursor"); // Add blinking cursor
 
-      // Remove cursor from previous lines
-      if (index > 0) {
-        lines[index - 1].classList.remove("cursor");
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        line.textContent += text[i]; // Add next letter
+        i++;
+      } else {
+        clearInterval(interval); // Stop typing
+        line.classList.remove("cursor"); // Remove cursor after typing
+
+        if (index < lines.length - 1) {
+          setTimeout(() => typeLine(lines[index + 1], index + 1), 500); // Delay before next line
+        }
       }
-
-      // Add cursor to the current line
-      line.classList.add("cursor");
-
-      // Remove the cursor after typing is completed
-      setTimeout(() => {
-        line.classList.remove("cursor");
-      }, 2000);
-    }, delay);
-
-    delay += 2500; // Delay for next line animation
+    }, 100); // Typing speed
   };
 
-  // Trigger animation for each line
-  lines.forEach(animateText);
+  // Start typing the first line
+  typeLine(lines[currentLine], currentLine);
 
   // ----- BACKGROUND MUSIC FUNCTIONALITY -----
   const music = document.getElementById("background-music");
