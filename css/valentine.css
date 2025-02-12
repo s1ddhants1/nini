@@ -37,12 +37,14 @@ body {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Improves text readability */
 }
 
-/* Style for all lines */
+/* Style for all lines, initially hidden */
 .typing-animation p {
   display: block;
   margin: 10px 0;
   font-size: 1.8rem;
-  opacity: 0; /* Hide text until it is typed */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Hidden until typed */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
 }
 
 /* Line 1: "heyy nini!!" */
