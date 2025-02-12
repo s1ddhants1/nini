@@ -42,6 +42,8 @@ body {
 .typing-animation p {
   display: inline-block; /* Important for text to align properly */
   font-size: 1.8rem;
+  opacity: 0;  /* Hidden until typed */
+  visibility: hidden;  /* Hidden until the text is typed */
   transition: opacity 0.5s ease-in-out;
   white-space: nowrap;
 }
