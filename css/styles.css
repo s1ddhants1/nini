@@ -18,7 +18,7 @@ body {
   font-style: normal;
 }
 
-body.homepage {
+body {
   background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
   height: 100vh;
   overflow-x: hidden;
@@ -95,7 +95,7 @@ main {
 }
 
 .intro h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #333;
 }
 
@@ -112,6 +112,10 @@ main {
 .intro h4 {
   font-size: 2rem;
   color: #333;
+}
+
+.spotify-player {
+  padding: 40px;
 }
 
 .spotify-player h5 {
