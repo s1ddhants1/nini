@@ -60,7 +60,8 @@ body {
 
 .typing-animation p:nth-child(3) {
   font-size: 2em; 
-  
+}
+
 #line3 {
   background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
   -webkit-background-clip: text;
