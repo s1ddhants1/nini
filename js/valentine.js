@@ -1,50 +1,59 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const lines = document.querySelectorAll(".typing-animation p");
-  const music = document.getElementById("background-music");
-  const playButton = document.getElementById("play-music");
-  const playIcon = playButton.querySelector("i");
+  const lines = [
+    document.getElementById("line1"),
+    document.getElementById("line2"),
+    document.getElementById("line3"),
+    document.getElementById("line4"),
+    document.getElementById("line5")
+  ];
   
-  let delay = 0;
-
-  // Typing animation for each line
-  const typeText = (line, text) => {
-    let i = 0;
-    line.textContent = ''; // Clear the text
-    const interval = setInterval(() => {
-      line.textContent += text[i];
-      i++;
-      if (i === text.length) {
-        clearInterval(interval); // Stop typing once text is complete
-      }
-    }, 100); // Adjust typing speed
-  };
-
-  // Start typing animation for each line
-  lines.forEach((line, index) => {
-    setTimeout(() => {
-      line.style.opacity = 1; // Make line visible
-      line.style.visibility = 'visible'; // Ensure it's visible
-      typeText(line, line.getAttribute("data-text"));
-    }, delay);
-    delay += 2500; // Delay the next line animation
-  });
-
-  // Play/pause background music
-  const togglePlayState = () => {
-    if (music.paused) {
-      music.muted = false;
-      music.play();
-      playIcon.classList.replace("fa-play", "fa-pause");
+  const typingSpeed = 80; // Speed of typing effect in ms
+  const delayBetweenLines = 500; // Delay before the next line starts
+  
+  let music = document.getElementById("background-music");
+  let playButton = document.getElementById("play-music");
+  let isPlaying = false;
+  
+  function typeText(element, text, index, callback) {
+    if (index < text.length) {
+      element.innerHTML += text.charAt(index);
+      setTimeout(() => typeText(element, text, index + 1, callback), typingSpeed);
+    } else {
+      setTimeout(callback, delayBetweenLines);
+    }
+  }
+  
+  function startTypingAnimation(index = 0) {
+    if (index < lines.length) {
+      let element = lines[index];
+      let text = element.textContent.trim();
+      element.textContent = ""; // Clear original text
+      element.style.visibility = "visible"; // Show element
+      element.style.opacity = 1;
+      typeText(element, text, 0, () => startTypingAnimation(index + 1));
+    }
+  }
+  
+  function playMusic() {
+    if (!isPlaying) {
+      music.play().then(() => {
+        isPlaying = true;
+        playButton.innerHTML = '<i class="fas fa-pause"></i>';
+      }).catch(err => console.warn("Autoplay blocked, use the button!"));
     } else {
       music.pause();
-      playIcon.classList.replace("fa-pause", "fa-play");
+      isPlaying = false;
+      playButton.innerHTML = '<i class="fas fa-play"></i>';
     }
-  };
+  }
+  
+  // Try to autoplay music, if not, use the button
+  music.volume = 0.5; // Set a reasonable volume
+  playMusic();
 
-  // Auto-play background music when the page loads
-  music.muted = false;
-  music.play().catch(err => console.warn("Autoplay Blocked:", err));
-
-  // Event listener for play button
-  playButton.addEventListener("click", togglePlayState);
+  // Button click to toggle music
+  playButton.addEventListener("click", playMusic);
+  
+  // Start typing animation after a small delay
+  setTimeout(() => startTypingAnimation(), 1000);
 });
