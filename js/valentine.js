@@ -11,25 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }, delay);
     delay += 2500;
   });
-setTimeout(() => startTypingAnimation(), 1000);
   
   let music = document.getElementById("background-music");
   let playButton = document.getElementById("play-music");
-  let isPlaying = false;
-  
-    function playMusic() {
-    if (!isPlaying) {
-      music.play().then(() => {
-        isPlaying = true;
-        playButton.innerHTML = '<i class="fas fa-pause"></i>';
-      }).catch(err => console.warn("Autoplay blocked, use the button!"));
+
+  music.play().catch(() => {});
+
+  playButton.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      playButton.innerHTML = '<i class="fas fa-pause"></i>';
     } else {
       music.pause();
-      isPlaying = false;
       playButton.innerHTML = '<i class="fas fa-play"></i>';
     }
-  }
-  
-  playMusic();
-  playButton.addEventListener("click", playMusic);
+  });
 });
