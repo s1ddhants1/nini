@@ -1,11 +1,7 @@
-/* General styling */
-body {
-  font-family: 'LondonBetween', sans-serif;
-  height: 100vh;
-  overflow: hidden;
+* {
   margin: 0;
-  text-align: center;
-  background-color: black;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Font face for 'LondonBetween' */
@@ -16,76 +12,80 @@ body {
   font-style: normal;
 }
 
-/* Background video */
+body {
+  font-family: 'LondonBetween', sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+}
+
 #background-video {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
   z-index: -1;
+  object-fit: cover;
 }
 
-/* Centered text container */
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Ensure text doesn't break into multiple lines */
 .typing-animation p {
-  display: block;
-  opacity: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 0.15em solid white;
-  width: 0;
-  margin: 0.5rem 0;
-  transition: width 2s ease, opacity 1s ease;
-  font-size: clamp(1.2rem, 1.5vw, 2rem);
+  display: block;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .15em solid white;
+  width: 0;
+  margin: 0;
+  margin: 0.5rem 0;
+  transition: width 2s ease, opacity 1s ease;
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
 }
 
-/* Cursor effect (static, moves with text) */
-.typing-animation p::after {
-  content: '|';
-  display: inline-block;
-  margin-left: 3px;
-  color: white;
-}
-
-/* Styling for each line */
-#line1 {
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-#line2 {
-  font-size: 1.7rem;
-  font-style: italic;
-}
-
+.typing-animation p:nth-child(3) {
+  font-size: 2em; 
 #line3 {
-  font-size: clamp(2.5rem, 3.5vw, 4rem);
-  font-weight: bold;
   background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
   -webkit-background-clip: text;
-  color: transparent; /* Ensures the gradient shows */
-}
-
-#line4 {
-  font-size: 1.7rem;
-  font-style: italic;
-}
-
-#line5 {
-  font-size: 1.8rem;
+  color: transparent;
+  font-size: clamp(2.5rem, 3.5vw, 4rem);
   font-weight: bold;
-  color: #ffcccb;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+#play-music {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+  outline: none;
+}
+#play-music:hover {
+  opacity: 0.8;
 }
 
 /* Play music button */
