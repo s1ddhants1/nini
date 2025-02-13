@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("line4"),
     document.getElementById("line5")
   ];
-  
+
   const typingSpeed = 80; // Speed of typing effect in ms
   const delayBetweenLines = 500; // Delay before the next line starts
-  
+
   let music = document.getElementById("background-music");
   let playButton = document.getElementById("play-music");
   let isPlaying = false;
-  
+
   function typeText(element, text, index, callback) {
     if (index < text.length) {
       element.innerHTML += text.charAt(index);
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(callback, delayBetweenLines);
     }
   }
-  
+
   function startTypingAnimation(index = 0) {
     if (index < lines.length) {
       let element = lines[index];
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
       typeText(element, text, 0, () => startTypingAnimation(index + 1));
     }
   }
-  
+
   function playMusic() {
     if (!isPlaying) {
       music.play().then(() => {
@@ -46,14 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
       playButton.innerHTML = '<i class="fas fa-play"></i>';
     }
   }
-  
+
   // Try to autoplay music, if not, use the button
   music.volume = 0.5; // Set a reasonable volume
   playMusic();
 
   // Button click to toggle music
   playButton.addEventListener("click", playMusic);
-  
+
   // Start typing animation after a small delay
   setTimeout(() => startTypingAnimation(), 1000);
 });
