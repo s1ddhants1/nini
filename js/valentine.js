@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Try to autoplay music, if not, use the button
-  music.volume = 0.5; // Set a reasonable volume
   playMusic();
 
   // Button click to toggle music
