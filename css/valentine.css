@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-/* Font face for 'LondonBetween' */
 @font-face {
   font-family: 'LondonBetween';
   src: url('../fonts/LondonBetween.woff') format('woff');
@@ -61,6 +60,7 @@ body {
 
 .typing-animation p:nth-child(3) {
   font-size: 2em; 
+  
 #line3 {
   background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
   -webkit-background-clip: text;
@@ -73,6 +73,7 @@ body {
   body {
     font-size: 18px;
   }
+  
 #play-music {
   position: fixed;
   bottom: 10px;
@@ -88,7 +89,6 @@ body {
   opacity: 0.8;
 }
 
-/* Play music button */
 #play-music {
   position: fixed;
   bottom: 20px;
