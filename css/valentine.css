@@ -1,11 +1,11 @@
-/* Body and font settings */
+/* General styling */
 body {
   font-family: 'LondonBetween', sans-serif;
   height: 100vh;
-  overflow: hidden;  /* Prevents scrollbars */
+  overflow: hidden;
   margin: 0;
   text-align: center;
-  background-color: black; /* Fallback background */
+  background-color: black;
 }
 
 /* Font face for 'LondonBetween' */
@@ -16,7 +16,7 @@ body {
   font-style: normal;
 }
 
-/* Ensure the video covers the entire screen */
+/* Background video */
 #background-video {
   position: fixed;
   top: 0;
@@ -24,30 +24,37 @@ body {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -1;  /* Behind the text */
+  z-index: -1;
 }
 
-/* Container for centered text */
+/* Centered text container */
 .container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-family: 'LondonBetween', sans-serif;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);  /* Shadow for text visibility */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Style for all lines, initially hidden */
+/* Ensure text doesn't break into multiple lines */
 .typing-animation p {
-  display: block; /* Keep each line separate */
+  display: inline-block;
   font-size: 1.8rem;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in-out;
-  position: relative; /* Fix vertical position */
+  position: relative;
+  white-space: nowrap; /* Prevent line break */
   text-align: center;
-  min-height: 2.5rem; /* Prevents height shifting */
+}
+
+/* Cursor effect (static, moves with text) */
+.typing-animation p::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 3px;
+  color: white;
 }
 
 /* Styling for each line */
@@ -61,14 +68,12 @@ body {
   font-style: italic;
 }
 
-
 #line3 {
-  color: #333;
-  background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
-  -webkit-background-clip: text;
-  color: transparent;
-  font-size: clamp(3.5rem, 4.5vw, 5rem);
-  font-weight: bold;
+  font-size: clamp(2.5rem, 3.5vw, 4rem);
+  font-weight: bold;
+  background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
+  -webkit-background-clip: text;
+  color: transparent; /* Ensures the gradient shows */
 }
 
 #line4 {
@@ -79,16 +84,10 @@ body {
 #line5 {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #ffcccb;  /* Soft pink color */
+  color: #ffcccb;
 }
 
-/* Cursor (just a fixed line without blinking) */
-.cursor {
-  border-right: 2px solid white;
-  margin-left: 3px;  /* Small gap between text and cursor */
-}
-
-/* Play button */
+/* Play music button */
 #play-music {
   position: fixed;
   bottom: 20px;
