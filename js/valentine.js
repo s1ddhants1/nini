@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }, delay);
     delay += 2500;
   });
-
+setTimeout(() => startTypingAnimation(), 1000);
+  
   let music = document.getElementById("background-music");
   let playButton = document.getElementById("play-music");
   let isPlaying = false;
@@ -29,13 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   
-  // Try to autoplay music, if not, use the button
-  music.volume = 0.5; // Set a reasonable volume
   playMusic();
-
-  // Button click to toggle music
   playButton.addEventListener("click", playMusic);
-
-  // Start typing animation after a small delay
-  setTimeout(() => startTypingAnimation(), 1000);
 });
