@@ -11,8 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }, delay);
     delay += 2500;
   });
- 
-  function playMusic() {
+
+  let music = document.getElementById("background-music");
+  let playButton = document.getElementById("play-music");
+  let isPlaying = false;
+  
+    function playMusic() {
     if (!isPlaying) {
       music.play().then(() => {
         isPlaying = true;
@@ -24,8 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
       playButton.innerHTML = '<i class="fas fa-play"></i>';
     }
   }
-
+  
   // Try to autoplay music, if not, use the button
+  music.volume = 0.5; // Set a reasonable volume
   playMusic();
 
   // Button click to toggle music
