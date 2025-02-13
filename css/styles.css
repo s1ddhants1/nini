@@ -1,11 +1,9 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Global Styles */
 body {
   font-family: 'LondonBetween', sans-serif;
   height: 100vh;
@@ -19,8 +17,6 @@ body {
   font-weight: normal;
   font-style: normal;
 }
-
-/* --------- Homepage Styles --------- */
 
 body.homepage {
   background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
