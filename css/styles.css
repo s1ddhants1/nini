@@ -112,7 +112,12 @@ main {
   font-weight: bold;
 }
 
-.spotify-player h4 {
+.intro h4 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.spotify-player h5 {
   font-size: 1rem;
   margin: 20px 0;
   text-decoration: underline;
