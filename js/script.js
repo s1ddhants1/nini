@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelector(".nav-links");
   const darkModeToggle = document.querySelector(".dark-mode-toggle");
   const body = document.body;
+  const header = document.querySelector("header");
 
   const toggleMenu = (event) => {
     event.stopPropagation();
@@ -31,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
   darkModeToggle.parentElement.addEventListener("click", (event) => {
     event.stopPropagation();
     const isDark = body.classList.toggle("dark-mode");
+    header.classList.toggle("dark-mode", isDark);
+    menuIcon.classList.toggle("dark-mode", isDark);
     darkModeToggle.classList.toggle("fa-moon", !isDark);
     darkModeToggle.classList.toggle("fa-sun", isDark);
     localStorage.setItem("darkMode", isDark);
@@ -38,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (localStorage.getItem("darkMode") === "true") {
     body.classList.add("dark-mode");
+    header.classList.add("dark-mode");
+    menuIcon.classList.add("dark-mode");
     darkModeToggle.classList.replace("fa-moon", "fa-sun");
   }
 });
