@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const menuIcon = document.querySelector(".menu-icon");
   const navLinks = document.querySelector(".nav-links");
-  const darkModeToggle = document.querySelector(".dark-mode-toggle");
   const body = document.body;
   const header = document.querySelector("header");
 
