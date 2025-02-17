@@ -27,14 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  darkModeToggle.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-    darkModeToggle.classList.toggle("dark");
-    localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+  // Dark Mode Toggle
+  darkModeToggle.parentElement.addEventListener("click", () => {
+    const isDark = body.classList.toggle("dark-mode");
+    darkModeToggle.classList.toggle("fa-moon", !isDark);
+    darkModeToggle.classList.toggle("fa-sun", isDark);
+    localStorage.setItem("darkMode", isDark);
   });
 
+  // Load Dark Mode State
   if (localStorage.getItem("darkMode") === "true") {
     body.classList.add("dark-mode");
-    darkModeToggle.classList.add("dark");
+    darkModeToggle.classList.replace("fa-moon", "fa-sun");
   }
 });
