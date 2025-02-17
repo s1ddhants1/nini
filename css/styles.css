@@ -11,11 +11,6 @@ body {
   text-align: center;
 }
 
-body.dark-mode {
-  background: #121212;
-  color: #ffffff;
-}
-
 @font-face {
   font-family: 'LondonBetween';
   src: url('../fonts/LondonBetween.woff') format('woff');
@@ -41,19 +36,10 @@ header {
   z-index: 10;
 }
 
-header.dark-mode {
-  background-color: #222;
-  color: #ffffff;
-}
-
 .logo {
   font-size: 2rem;
   font-weight: bold;
   color: #333;
-}
-
-.logo.dark-mode {
-  color: white;
 }
 
 .menu {
@@ -73,10 +59,6 @@ header.dark-mode {
   align-items: center;
 }
 
-.dark-mode-toggle.dark {
-  color: #ffffff;
-}
-
 .menu-icon {
   cursor: pointer;
   font-size: 30px;
@@ -87,10 +69,6 @@ header.dark-mode {
 .menu-icon.open {
   color: #D80073;
   transform: rotate(90deg);
-}
-
-.menu-icon.dark-mode {
-  color: #ffffff;
 }
 
 .nav-links {
