@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const menuIcon = document.querySelector(".menu-icon");
   const navLinks = document.querySelector(".nav-links");
-  const body = document.body;
-  const header = document.querySelector("header");
 
   const toggleMenu = (event) => {
     event.stopPropagation();
@@ -26,4 +24,5 @@ document.addEventListener("DOMContentLoaded", function () {
       menuIcon.classList.remove("open");
       menuIcon.setAttribute("aria-expanded", "false");
     }
-  })
+  });
+});
