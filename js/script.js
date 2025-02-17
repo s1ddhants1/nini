@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const menuIcon = document.querySelector(".menu-icon");
   const navLinks = document.querySelector(".nav-links");
+  const toggleButton = document.getElementById("dark-mode-toggle");
+  const body = document.body;
 
+  // Toggle navigation menu
   const toggleMenu = (event) => {
     event.stopPropagation();
     const isActive = navLinks.classList.contains("nav-active");
@@ -24,5 +27,25 @@ document.addEventListener("DOMContentLoaded", function () {
       menuIcon.classList.remove("open");
       menuIcon.setAttribute("aria-expanded", "false");
     }
+  });
+
+  // Load saved theme preference
+  if (localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+    toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+
+  // Toggle dark mode
+  toggleButton.addEventListener("click", function () {
+    body.classList.toggle("dark-mode");
+    const isDarkMode = body.classList.contains("dark-mode");
+
+    // Toggle icon
+    toggleButton.innerHTML = isDarkMode
+      ? '<i class="fas fa-sun"></i>'
+      : '<i class="fas fa-moon"></i>';
+
+    // Save preference
+    localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
   });
 });
