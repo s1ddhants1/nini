@@ -1,4 +1,3 @@
-/* Resetting common styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +9,6 @@ body {
   height: 100vh;
   overflow: auto;
   text-align: center;
-  background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC); /* Light mode default background */
-  color: #333; /* Default text color */
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode {
@@ -20,18 +16,19 @@ body.dark-mode {
   color: #ffffff;
 }
 
-/* Font Fallback */
 @font-face {
   font-family: 'LondonBetween';
   src: url('../fonts/LondonBetween.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
+
 body {
-  font-family: 'LondonBetween', sans-serif; /* Fallback to sans-serif */
+  background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
+  height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -46,52 +43,57 @@ header {
 
 header.dark-mode {
   background-color: #222;
+  color: #ffffff;
 }
 
-/* Logo */
 .logo {
   font-size: 2rem;
   font-weight: bold;
-  color: inherit; /* Inherit color from body */
+  color: #333;
+}
+
+.logo.dark-mode {
+  color: white;
 }
 
 .menu {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
-/* Dark Mode Toggle Button */
 .dark-mode-toggle {
   cursor: pointer;
   font-size: 24px;
   background: none;
   border: none;
-  color: inherit;
+  color: #333;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .dark-mode-toggle.dark {
   color: #ffffff;
 }
 
-/* Menu Icon */
 .menu-icon {
   cursor: pointer;
   font-size: 30px;
-  color: inherit;
+  color: #333;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .menu-icon.open {
   color: #D80073;
   transform: rotate(90deg);
-  transform-origin: center;
 }
 
-/* Navigation Menu */
+.menu-icon.dark-mode {
+  color: #ffffff;
+}
+
 .nav-links {
-  display: none; /* Initially hidden */
   position: absolute;
   top: 60px;
   right: 0;
@@ -99,13 +101,21 @@ header.dark-mode {
   color: white;
   border-radius: 8px;
   padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+  pointer-events: none;
 }
 
-.nav-links.active {
-  display: block; /* Display menu when active */
+.nav-active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
+  pointer-events: auto;
 }
 
-/* Navigation Links */
 .nav-links a {
   display: block;
   padding: 10px 15px;
@@ -119,7 +129,6 @@ header.dark-mode {
   background: #D80073;
 }
 
-/* Main Content */
 main {
   padding: 50px 20px;
   text-align: center;
@@ -132,23 +141,33 @@ main {
 
 .intro h2 {
   font-size: 3rem;
+  color: #333;
 }
 
 .intro h3 {
+  color: #333;
   background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
   -webkit-background-clip: text;
   color: transparent;
+  font-size: 4rem;
   font-size: clamp(3.5rem, 4.5vw, 5rem);
   font-weight: bold;
 }
 
 .intro h4 {
   font-size: 1rem;
+  color: #333;
 }
 
 .spotify-player {
   padding: 40px;
   height: 100px;
+}
+
+.spotify-player h5 {
+  font-size: 1rem;
+  margin: 5px 0;
+  text-decoration: underline;
 }
 
 .spotify-container iframe {
