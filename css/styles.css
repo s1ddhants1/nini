@@ -11,6 +11,11 @@ body {
   text-align: center;
 }
 
+body.dark-mode {
+  background: #121212;
+  color: #ffffff;
+}
+
 @font-face {
   font-family: 'LondonBetween';
   src: url('../fonts/LondonBetween.woff') format('woff');
@@ -36,12 +41,19 @@ header {
   z-index: 10;
 }
 
+header.dark-mode {
+  background-color: #222;
+  color: #ffffff;
+}
+
+/* Logo */
 .logo {
   font-size: 2rem;
   font-weight: bold;
   color: #333;
 }
 
+/* Menu */
 .menu {
   position: relative;
 }
@@ -50,21 +62,39 @@ header {
   cursor: pointer;
   font-size: 30px;
   color: #333;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.menu-icon.open {
+  color: #D80073;
+  transform: rotate(90deg);
+}
+
+/* Navigation Menu */
 .nav-links {
   position: absolute;
-  top: 50px;
+  top: 60px;
   right: 0;
   background: rgba(0, 0, 0, 0.9);
   color: white;
-  border-radius: 5px;
-  overflow: hidden;
+  border-radius: 8px;
+  padding: 10px;
   opacity: 0;
+  visibility: hidden;
   transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+  pointer-events: none;
 }
 
+.nav-active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
+  pointer-events: auto;
+}
+
+/* Navigation Links */
 .nav-links a {
   display: block;
   padding: 10px 15px;
@@ -78,12 +108,20 @@ header {
   background: #D80073;
 }
 
-.nav-active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  cursor: pointer;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: #333;
+  margin-left: 15px;
+  transition: color 0.3s ease;
 }
 
+.dark-mode-toggle.dark {
+  color: #ffffff;
+}
 main {
   padding: 50px 20px;
   text-align: center;
