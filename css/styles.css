@@ -1,16 +1,27 @@
+/* CSS Variables */
+:root {
+  --primary-bg-light: #FFDEE9;
+  --secondary-bg-light: #B5FFFC;
+  --primary-bg-dark: #181818;
+  --secondary-bg-dark: #222222;
+  --navbar-bg-light: #ffffff;
+  --navbar-bg-dark: #1e1e1e;
+  --text-color-light: #333;
+  --text-color-dark: #E0E0E0;
+  --accent-color: #D80073;
+  --gradient-text-start: #B2005A;
+  --gradient-text-middle: #D80073;
+  --gradient-text-end: #FF66A3;
+}
+
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'LondonBetween', sans-serif;
-  height: 100vh;
-  overflow: auto;
-  text-align: center;
-}
-
+/* Font Face */
 @font-face {
   font-family: 'LondonBetween';
   src: url('../fonts/LondonBetween.woff') format('woff');
@@ -18,12 +29,48 @@ body {
   font-style: normal;
 }
 
+/* General Styles */
 body {
-  background: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);
+  font-family: 'LondonBetween', sans-serif;
   height: 100vh;
   overflow-x: hidden;
+  text-align: center;
+  background: linear-gradient(to bottom right, var(--primary-bg-light), var(--secondary-bg-light));
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* Dark Mode */
+.dark-mode {
+  background: linear-gradient(to bottom right, var(--primary-bg-dark), var(--secondary-bg-dark));
+  color: var(--text-color-dark);
+}
+
+.dark-mode .navbar {
+  background: var(--navbar-bg-dark);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .logo, .dark-mode .menu-icon {
+  color: var(--text-color-dark);
+}
+
+.dark-mode .menu-icon.open {
+  color: var(--accent-color);
+}
+
+.dark-mode .nav-links {
+  background: rgba(30, 30, 30, 0.95);
+}
+
+.dark-mode .nav-links a {
+  color: var(--text-color-dark);
+}
+
+.dark-mode .nav-links a:hover {
+  background: var(--accent-color);
+}
+
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -31,15 +78,16 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--navbar-bg-light);
   padding: 15px;
   z-index: 10;
+  transition: background 0.3s ease;
 }
 
 .logo {
   font-size: 2rem;
   font-weight: bold;
-  color: #333;
+  color: var(--text-color-light);
 }
 
 .menu {
@@ -48,13 +96,7 @@ header {
   gap: 10px;
 }
 
-/* Dark mode styles */
-.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-/* Toggle button */
+/* Toggle Button */
 #dark-mode-toggle {
   background: none;
   border: none;
@@ -63,30 +105,20 @@ header {
   color: inherit;
 }
 
-/* Ensure sticky navbar appearance */
-.navbar {
-  position: sticky;
-  top: 0;
-  background: #ffffff; /* Default light mode */
-  transition: background 0.3s ease;
-}
-
-.dark-mode .navbar {
-  background: #1e1e1e; /* Dark mode navbar */
-}
-
+/* Menu Icon */
 .menu-icon {
   cursor: pointer;
   font-size: 30px;
-  color: #333;
+  color: var(--text-color-light);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .menu-icon.open {
-  color: #D80073;
+  color: var(--accent-color);
   transform: rotate(90deg);
 }
 
+/* Navigation Links */
 .nav-links {
   position: absolute;
   top: 60px;
@@ -98,7 +130,7 @@ header {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+  transition: opacity 0.3s, transform 0.3s, visibility 0s linear 0.3s;
   pointer-events: none;
 }
 
@@ -106,7 +138,7 @@ header {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
+  transition: opacity 0.3s, transform 0.3s;
   pointer-events: auto;
 }
 
@@ -120,12 +152,12 @@ header {
 }
 
 .nav-links a:hover {
-  background: #D80073;
+  background: var(--accent-color);
 }
 
+/* Main Content */
 main {
   padding: 50px 20px;
-  text-align: center;
   flex-grow: 1;
 }
 
@@ -133,29 +165,22 @@ main {
   padding: 40px;
 }
 
-.intro h2 {
-  font-size: 3rem;
-  color: #333;
+.intro h2, .intro h4 {
+  font-size: 1rem;
+  color: var(--text-color-light);
 }
 
 .intro h3 {
-  color: #333;
-  background: linear-gradient(90deg, #B2005A, #D80073, #FF66A3);
+  background: linear-gradient(90deg, var(--gradient-text-start), var(--gradient-text-middle), var(--gradient-text-end));
   -webkit-background-clip: text;
   color: transparent;
-  font-size: 4rem;
   font-size: clamp(3.5rem, 4.5vw, 5rem);
   font-weight: bold;
 }
 
-.intro h4 {
-  font-size: 1rem;
-  color: #333;
-}
-
+/* Spotify Player */
 .spotify-player {
   padding: 40px;
-  height: 100px;
 }
 
 .spotify-player h5 {
