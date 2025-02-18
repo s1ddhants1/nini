@@ -194,15 +194,20 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   padding: 10px 0;
+  left: 0;
+  width: 100%;
+  height: 352px;
+  position: relative;"
 }
 
 .spotify-player iframe {
-  width: 90%;  
-  max-width: 400px; 
-  height: 80px; 
-  border-radius: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 0;
 }
 
 /* Mobile optimization  */
