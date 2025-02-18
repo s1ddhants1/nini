@@ -199,15 +199,15 @@ main {
 }
 
 .spotify-player iframe {
-  width: 90%;  /* Adjusts width dynamically */
-  max-width: 400px; /* Limits max size */
-  height: 80px; /* Standard Spotify embed height */
+  width: 90%;  
+  max-width: 400px; 
+  height: 80px; 
   border-radius: 10px;
 }
 
-/* Adjust height for smaller screens */
+/* Mobile optimization  */
 @media (max-width: 480px) {
   .spotify-player iframe {
-    height: 65px; /* Reduce height on smaller screens */
+    height: 65px;
   }
 }
