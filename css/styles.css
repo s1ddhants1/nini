@@ -188,31 +188,5 @@ main {
   font-size: 1rem;
   margin: 5px 0;
   text-decoration: underline;
-}
-
-.spotify-player {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-  left: 0;
-  width: 100%;
-  height: 352px;
-  position: relative;
-}
-
-.spotify-player iframe {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border: 0;
-}
-
-/* Mobile optimization  */
-@media (max-width: 480px) {
-  .spotify-player iframe {
-    height: 65px;
-  }
+ }
 }
