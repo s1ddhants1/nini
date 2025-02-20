@@ -251,4 +251,18 @@ main {
     .event-dot:hover .tooltip {
       opacity: 1;
     }
+
+    /* hearts animation */
+    @keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+    }
+    
+    /* unselectable text */
+    * {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    }
 }
