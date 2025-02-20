@@ -78,24 +78,3 @@ document.querySelectorAll("h3").forEach(h3 => {
         }, 1000);
     });
 });
-
-// CSS animation for floating effect
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes floatUp {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-50px); opacity: 0; }
-}`;
-document.head.appendChild(style);
-
-// Make all text unselectable
-const unselectableStyle = document.createElement("style");
-unselectableStyle.innerHTML = `
-    * {
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-    }
-`;
-document.head.appendChild(unselectableStyle);
