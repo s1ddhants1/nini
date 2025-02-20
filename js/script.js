@@ -60,6 +60,16 @@ document.querySelectorAll("h3").forEach(h3 => {
         heart.style.pointerEvents = "none";
         heart.style.animation = "floatUp 1s ease-out";
 
+        // Get computed gradient from h3
+        const computedStyle = window.getComputedStyle(h3);
+        const textGradient = computedStyle.getPropertyValue("background-image");
+        
+        if (textGradient && textGradient.includes("gradient")) {
+            heart.style.backgroundImage = textGradient;
+            heart.style.webkitBackgroundClip = "text";
+            heart.style.color = "transparent";
+        }
+
         document.body.appendChild(heart);
 
         setTimeout(() => {
