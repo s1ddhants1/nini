@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const menuIcon = document.querySelector(".menu-icon");
+document.addEventListener("DOMContentLoaded", function () {  const menuIcon = document.querySelector(".menu-icon");
   const navLinks = document.querySelector(".nav-links");
   const toggleButton = document.getElementById("dark-mode-toggle");
   const body = document.body;
@@ -49,3 +48,31 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
   });
 });
+
+document.querySelectorAll("h3").forEach(h3 => {
+    h3.addEventListener("click", function(event) {
+        const heart = document.createElement("span");
+        heart.innerHTML = "❤️";
+        heart.style.position = "absolute";
+        heart.style.left = `${event.clientX}px`;
+        heart.style.top = `${event.clientY}px`;
+        heart.style.fontSize = "24px";
+        heart.style.pointerEvents = "none";
+        heart.style.animation = "floatUp 1s ease-out";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1000);
+    });
+});
+
+// CSS animation for floating effect
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+}`;
+document.head.appendChild(style);
