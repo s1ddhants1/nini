@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {  const menuIcon = do
   });
 });
 
+// Floating hearts
 document.querySelectorAll("h3").forEach(h3 => {
     h3.addEventListener("click", function(event) {
         const heart = document.createElement("span");
